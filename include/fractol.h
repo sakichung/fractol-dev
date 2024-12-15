@@ -34,6 +34,8 @@
 #define WIN_HEIGHT 1080
 #define WIDTH 1280
 #define HEIGHT 720
+#define MAX_ITER 100
+
 /*	Viewport	*/
 #define MANDELBROT 1
 #define JULIA 2
@@ -41,51 +43,34 @@
 /*-----------------------------------*/
 /*	Fractal Rendering Settings	*/
 /*-----------------------------------*/
-// to do dele later(JP)
-/*	MiniLibX関連 (mlx, win, img)	*/
-/*	画像データ関連 (addr, bits_per_pixel, line_length, endian)	*/
-/*	描画範囲関連 (sx, rx, ry)	*/
-/*	最大反復回数 (max_iterations)	*/
-/*	フラクタル名 (fractal_name)	*/
-/*	色相シフト (color_shift)	*/
+typedef struct s_complex
+{
+	double real; // 実部
+	double imag; // 虚部
+} t_complex;
+
 typedef struct s_fractol
 {
-	char *name;
 	void *mlx;
 	void *win;
 	void *img;
-	char *addr;
-	int set;
-	int bits_per_pixel;
-	int line_length;
-	int endian;
-	double sx;
-	double rx;
-	double ry;
-	int max_iterations;
-	char *fractal_name;
-	int color_shift;
+	char *buf;
+	int palette[MAX_ITER];
+	int set;			 // フラクタルの種類（1 = Mandelbrot, 2 = Julia）
+	t_complex julia_c;	 // Julia用の定数
+	double min_r, max_r; // 実数軸の範囲
+	double min_i, max_i; // 虚数軸の範囲
 } t_fractol;
 
 /*-----------------------------------*/
 /*	Functions	*/
 /*-----------------------------------*/
-/*	msg.c	*/
-void help_msg(void);
-void error_msg(char *msg);
-
-/*	utils.c	*/
-int end_fractol(t_fractol *mlx);
-
-/*	init.c	 */
-t_fractol *search_fractal(char *name);
-t_fractol *select_fractal(int i);
-
-/*	render.c	*/
+void set_pixel_color(t_fractol *f, int x, int y, int color);
+void error_msg(const char *msg);
+int mandelbrot(t_complex c, int max_iterations);
+int julia(t_complex z, t_complex c, int max_iterations);
+void set_fractal_range(t_fractol *f, int set);
+void render_fractal(t_fractol *f);
 void render(t_fractol *f);
-
-/*	calc.c	*/
-int julia(double z[2], double c[2], int max_iterations);
-int mandelbrot(double c[2], int max_iterations);
 
 #endif

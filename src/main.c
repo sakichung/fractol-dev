@@ -10,26 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "fractol.h"
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_fractol	fractal;
+	t_fractol fractol;
 
 	if (argc < 2)
-		error_msg("No fractal name provided");
-	if (!ft_strncmp(argv[1], "--help", 4))
-		help_msg();
-	fractal = search_fractal(argv[1]);
-	if (fractal->name == NULL)
-		error_msg("Wrong fractal name");
+		error_msg("No fractal type provided. Use 1 (Mandelbrot) or 2 (Julia).");
 
-	core = new_core("Fract-ol");
-	core->ctx->fractal = fractal;
-	reset_viewport(core);
-	render(core);
-	init_loop(core);
-	return (0);
+	// MLX初期化
+	fractol.mlx = mlx_init();
+	fractol.win = mlx_new_window(fractol.mlx, WIDTH, HEIGHT, "Fractal Viewer");
+	fractol.img = mlx_new_image(fractol.mlx, WIDTH, HEIGHT);
+	fractol.buf = mlx_get_data_addr(fractol.img, &(int){0}, &(int){0}, &(int){0});
+
+	// フラクタル種類を設定
+	int set = atoi(argv[1]); // 引数を整数として解釈
+	set_fractal_range(&fractol, set);
+
+	// パレット生成
+	generate_palette(fractol.palette);
+
+	// フラクタルを描画
+	render(&fractol);
+
+	// イベントループ
+	mlx_loop(fractol.mlx);
+
+	return 0;
 }
