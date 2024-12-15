@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fracto.h"
+#include "fractol.h"
 
 /**
  * mandelbrot_iterations:

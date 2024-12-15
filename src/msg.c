@@ -6,7 +6,7 @@
 /*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:14:20 by pchung            #+#    #+#             */
-/*   Updated: 2024/12/13 10:53:07 by pchung           ###   ########.fr       */
+/*   Updated: 2024/12/15 23:52:39 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 void help_msg(void)
 {
     ft_putstr_fd("usage: ./fractol ", 2);
-    ft_putstr_fd("\"fractal_name\" {\"julia\", ");
+    ft_putstr_fd("\"fractal_name\" {\"julia\", ", 2);
 }
 
 /**
@@ -28,6 +28,6 @@ void help_msg(void)
 void error_msg(char *msg)
 {
     ft_putstr_fd("Error\n", 2);
-    ft_putstr_fd(*msg, 2);
+    ft_putstr_fd(msg, 2);
     help_msg();
 }

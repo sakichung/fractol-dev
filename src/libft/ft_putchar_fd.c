@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
+/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 09:55:52 by pchung            #+#    #+#             */
-/*   Updated: 2024/12/15 23:53:18 by pchung           ###   ########.fr       */
+/*   Created: 2023/08/07 09:13:54 by saraki            #+#    #+#             */
+/*   Updated: 2023/08/07 09:40:16 by saraki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int end_fractol(t_fractol *mlx)
+void	ft_putchar_fd(char c, int fd)
 {
-	// clean_exit(0, mlx);
-    (void) mlx;
-	return (0);
+	if (write(fd, &c, 1) == -1)
+		return ;
+	return ;
 }
+
+// int main()
+// {
+// 	ft_putchar_fd('c', STDOUT_FILENO);
+// 	ft_putchar_fd('c', STDERR_FILENO);
+// }

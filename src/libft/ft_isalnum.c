@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
+/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 09:55:52 by pchung            #+#    #+#             */
-/*   Updated: 2024/12/15 23:53:18 by pchung           ###   ########.fr       */
+/*   Created: 2023/08/04 14:39:26 by saraki            #+#    #+#             */
+/*   Updated: 2023/08/04 14:42:14 by saraki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int end_fractol(t_fractol *mlx)
+int	ft_isalnum(int c)
 {
-	// clean_exit(0, mlx);
-    (void) mlx;
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
 	return (0);
 }

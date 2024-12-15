@@ -6,12 +6,15 @@
 /*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:22:05 by pchung            #+#    #+#             */
-/*   Updated: 2024/12/13 11:10:58 by pchung           ###   ########.fr       */
+/*   Updated: 2024/12/15 23:53:01 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 #define FRACTOL_H
+
+#include "libft.h"
+
 /*-----------------------------------*/
 /*	Libraries	*/
 /*-----------------------------------*/
@@ -58,19 +61,22 @@ typedef struct s_fractol
 	int palette[MAX_ITER];
 	int set;			 // フラクタルの種類（1 = Mandelbrot, 2 = Julia）
 	t_complex julia_c;	 // Julia用の定数
-	double min_r, max_r; // 実数軸の範囲
-	double min_i, max_i; // 虚数軸の範囲
+	double min_r;
+    double max_r; // 実数軸の範囲
+	double min_i;
+    double max_i; // 虚数軸の範囲
 } t_fractol;
 
 /*-----------------------------------*/
 /*	Functions	*/
 /*-----------------------------------*/
 void set_pixel_color(t_fractol *f, int x, int y, int color);
-void error_msg(const char *msg);
+void error_msg(char *msg);
 int mandelbrot(t_complex c, int max_iterations);
 int julia(t_complex z, t_complex c, int max_iterations);
 void set_fractal_range(t_fractol *f, int set);
 void render_fractal(t_fractol *f);
 void render(t_fractol *f);
+void generate_palette(int *palette);
 
 #endif

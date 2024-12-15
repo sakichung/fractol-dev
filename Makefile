@@ -6,11 +6,62 @@ SOURCES :=
 
 # Header
 HEADER += fractol.h 
+HEADER += libft.h
+HEADER += 
 
 # Sources
-SOURCES += main.c 
+SOURCES += main.c  
+SOURCES += calc.c
+SOURCES += color.c
+SOURCES += event.c
+SOURCES += init.c
+SOURCES += msg.c
+SOURCES += render.c
+SOURCES += utils.c
 
-
+SOURCES += libft/ft_bzero.c
+SOURCES += libft/ft_atoi.c
+SOURCES += libft/ft_calloc.c
+SOURCES += libft/ft_isalnum.c
+SOURCES += libft/ft_isalpha.c
+SOURCES += libft/ft_isascii.c
+SOURCES += libft/ft_isdigit.c
+SOURCES += libft/ft_isprint.c
+SOURCES += libft/ft_itoa.c
+SOURCES += libft/ft_lstadd_back.c
+SOURCES += libft/ft_lstadd_front.c
+SOURCES += libft/ft_lstclear.c
+SOURCES += libft/ft_lstdelone.c
+SOURCES += libft/ft_lstiter.c
+SOURCES += libft/ft_lstlast.c
+SOURCES += libft/ft_lstmap.c
+SOURCES += libft/ft_lstnew.c
+SOURCES += libft/ft_lstsize.c
+SOURCES += libft/ft_memchr.c
+SOURCES += libft/ft_memcmp.c
+SOURCES += libft/ft_memcpy.c
+SOURCES += libft/ft_memmove.c
+SOURCES += libft/ft_memset.c
+SOURCES += libft/ft_putchar_fd.c
+SOURCES += libft/ft_putendl_fd.c
+SOURCES += libft/ft_putnbr_fd.c
+SOURCES += libft/ft_putstr_fd.c
+SOURCES += libft/ft_split.c
+SOURCES += libft/ft_strchr.c
+SOURCES += libft/ft_strdup.c
+SOURCES += libft/ft_striteri.c
+SOURCES += libft/ft_strjoin.c
+SOURCES += libft/ft_strlcat.c
+SOURCES += libft/ft_strlcpy.c
+SOURCES += libft/ft_strlen.c
+SOURCES += libft/ft_strmapi.c
+SOURCES += libft/ft_strncmp.c
+SOURCES += libft/ft_strnstr.c
+SOURCES += libft/ft_strrchr.c
+SOURCES += libft/ft_strtrim.c
+SOURCES += libft/ft_substr.c
+SOURCES += libft/ft_tolower.c
+SOURCES += libft/ft_toupper.c
 
 SOURCES_PREFIX = src/
 

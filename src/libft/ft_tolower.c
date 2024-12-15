@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
+/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 09:55:52 by pchung            #+#    #+#             */
-/*   Updated: 2024/12/15 23:53:18 by pchung           ###   ########.fr       */
+/*   Created: 2023/08/04 15:59:49 by saraki            #+#    #+#             */
+/*   Updated: 2023/08/04 16:16:39 by saraki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int end_fractol(t_fractol *mlx)
+int	ft_tolower(int c)
 {
-	// clean_exit(0, mlx);
-    (void) mlx;
-	return (0);
+	if ((int) 'A' <= c && c <= (int) 'Z')
+		return (c + (int) 'a' - (int) 'A');
+	return (c);
 }

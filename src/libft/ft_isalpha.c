@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
+/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 09:55:52 by pchung            #+#    #+#             */
-/*   Updated: 2024/12/15 23:53:18 by pchung           ###   ########.fr       */
+/*   Created: 2023/08/04 13:59:48 by saraki            #+#    #+#             */
+/*   Updated: 2023/08/04 14:36:57 by saraki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int end_fractol(t_fractol *mlx)
+int	ft_isalpha(int c)
 {
-	// clean_exit(0, mlx);
-    (void) mlx;
+	if ((int) 'A' <= c && c <= (int) 'Z')
+		return (1);
+	else if ((int) 'a' <= c && c <= (int) 'z')
+		return (1);
 	return (0);
 }
