@@ -84,12 +84,6 @@ MLX_LIB := $(addprefix $(LIBRARY_DIR)/,libmlx.a)
 
 HEADER_FILES := $(addprefix $(HEADER_DIR)/,$(HEADER))
 
-ifdef DEBUG
-CFLAGS += $(DFLAGS)
-NAME = $(DNAME)
-OBJS = $(DOBJS)
-endif
-
 define install_minilibx
 	current_dir=$(shell pwd); \
 	lib_dir="$${current_dir}/lib"; \
@@ -132,7 +126,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 %_d.o: %.c $(HEADER_FILES)
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(DFLAGS) $(IFLAGS) -c $< -o $@
 
 .PHONY: init
 init: $(MLX_HEADER) $(MLX_LIB)
@@ -153,5 +147,7 @@ fclean: clean
 re: fclean all
 
 .PHONY: debug
-debug:
-	make DEBUG=1
+debug: $(DNAME)
+
+$(DNAME): $(DOBJS)
+	$(CC) $(CFLAGS) $(DFLAGS) $(DOBJS) $(LFLAGS) -o $@
