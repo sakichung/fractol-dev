@@ -70,7 +70,7 @@ HEADER_DIR = include
 BUILD_DIR = build
 
 CC := cc
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -O2
 IFLAGS := -I$(HEADER_DIR)
 LFLAGS := -L$(LIBRARY_DIR) -lmlx_Linux -lXext -lX11 -lm
 DFLAGS := -fdiagnostics-color=always -g3 -fsanitize=address

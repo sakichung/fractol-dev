@@ -6,7 +6,7 @@
 /*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:55:55 by pchung            #+#    #+#             */
-/*   Updated: 2024/12/13 10:56:52 by pchung           ###   ########.fr       */
+/*   Updated: 2024/12/16 07:54:47 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 /**
  * calculate_fractal:
- * ƒtƒ‰ƒNƒ^ƒ‹‚Ì”½•œ‰ñ”‚ğŒvZ‚µ‚Ü‚·B
- * @f: ƒtƒ‰ƒNƒ^ƒ‹\‘¢‘ÌB
- * @pr: •¡‘f”‚ÌÀ•”B
- * @pi: •¡‘f”‚Ì‹••”B
+ * ï¿½tï¿½ï¿½ï¿½Nï¿½^ï¿½ï¿½ï¿½Ì”ï¿½ï¿½ï¿½ï¿½ñ”‚ï¿½ï¿½vï¿½Zï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+ * @f: ï¿½tï¿½ï¿½ï¿½Nï¿½^ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ÌB
+ * @pr: ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½B
+ * @pi: ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½Ì‹ï¿½ï¿½ï¿½ï¿½B
  *
- * –ß‚è’l: ”½•œ‰ñ”B
+ * ï¿½ß‚ï¿½l: ï¿½ï¿½ï¿½ï¿½ï¿½ñ”B
  */
 static int calculate_fractal(t_fractol *f, double pr, double pi)
 {
@@ -30,38 +30,42 @@ static int calculate_fractal(t_fractol *f, double pr, double pi)
 	else if (f->set == JULIA) // JULIA
 		nb_iter = julia((t_complex){pr, pi}, f->julia_c, MAX_ITER);
 	else
-		nb_iter = 0; // •s–¾‚ÈƒZƒbƒg‚Ìê‡
+		nb_iter = 0; // ï¿½sï¿½ï¿½ï¿½ÈƒZï¿½bï¿½gï¿½Ìê‡
 	return nb_iter;
 }
 
 /**
  * render_fractal:
- * ƒtƒ‰ƒNƒ^ƒ‹‚ğ•`‰æ‚·‚éŠÖ”‚ğŒÄ‚Ño‚µ‚Ü‚·B
- * @f: ƒtƒ‰ƒNƒ^ƒ‹\‘¢‘ÌB
+ * ï¿½tï¿½ï¿½ï¿½Nï¿½^ï¿½ï¿½ï¿½ï¿½`ï¿½æ‚·ï¿½ï¿½Öï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+ * @f: ï¿½tï¿½ï¿½ï¿½Nï¿½^ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ÌB
  */
 void render_fractal(t_fractol *f)
 {
-	for (int y = 0; y < HEIGHT; y++)
-	{
-		for (int x = 0; x < WIDTH; x++)
-		{
-			double cr = f->min_r + x * (f->max_r - f->min_r) / WIDTH;
-			double ci = f->min_i + y * (f->max_i - f->min_i) / HEIGHT;
+    for (int y = 0; y < HEIGHT; y++)
+    {
+        for (int x = 0; x < WIDTH; x++)
+        {
+            double cr = f->min_r + x * (f->max_r - f->min_r) / WIDTH;
+            double ci = f->min_i + y * (f->max_i - f->min_i) / HEIGHT;
 
-			int iter = calculate_fractal(f, cr, ci);
-			int color = f->palette[iter % MAX_ITER];
-			set_pixel_color(f, x, y, color);
-		}
-	}
+            int iter = calculate_fractal(f, cr, ci);
+
+            if (iter == MAX_ITER) // å†…éƒ¨ç‚¹ã¯é»’è‰²
+                set_pixel_color(f, x, y, 0x000000);
+            else // å¤–éƒ¨ç‚¹ã®è‰²ã‚’ãƒ‘ãƒ¬ãƒƒãƒˆã‹ã‚‰å–å¾—
+                set_pixel_color(f, x, y, f->palette[iter % MAX_ITER]);
+        }
+    }
 }
+
 
 /**
  * set_fractal_range:
- * ƒtƒ‰ƒNƒ^ƒ‹í—Ş‚É‰‚¶‚Ä•`‰æ”ÍˆÍ‚ğİ’è‚µ‚Ü‚·B
- * @f: ƒtƒ‰ƒNƒ^ƒ‹\‘¢‘ÌB
- * @set: ƒtƒ‰ƒNƒ^ƒ‹‚Ìí—Şi1 = MANDELBROT, 2 = JULIAjB
+ * ï¿½tï¿½ï¿½ï¿½Nï¿½^ï¿½ï¿½ï¿½ï¿½Ş‚É‰ï¿½ï¿½ï¿½ï¿½Ä•`ï¿½ï¿½ÍˆÍ‚ï¿½İ’è‚µï¿½Ü‚ï¿½ï¿½B
+ * @f: ï¿½tï¿½ï¿½ï¿½Nï¿½^ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ÌB
+ * @set: ï¿½tï¿½ï¿½ï¿½Nï¿½^ï¿½ï¿½ï¿½Ìï¿½Şi1 = MANDELBROT, 2 = JULIAï¿½jï¿½B
  */
-void set_fractal_range(t_fractol *f, int set)
+void set_fractal_range(t_fractol *f, int set, int argc, char **argv)
 {
 	f->set = set;
 	if (set == 1) // MANDELBROT
@@ -77,7 +81,16 @@ void set_fractal_range(t_fractol *f, int set)
 		f->max_r = 2.0;
 		f->min_i = -2.0;
 		f->max_i = 2.0;
-		f->julia_c = (t_complex){.real = -0.7, .imag = 0.27015}; // ŒÅ’è’l
+		        // ã‚¸ãƒ¥ãƒªã‚¢é›†åˆã®å ´åˆã€å›ºå®šå®šæ•° c ã‚’è¨­å®š
+        if (argc >= 4) // ãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒå¼•æ•°ã§æŒ‡å®šã—ãŸå ´åˆ
+        {
+            f->julia_c.real = atof(argv[2]); // å®Ÿéƒ¨
+            f->julia_c.imag = atof(argv[3]); // è™šéƒ¨
+        }
+        else // å¼•æ•°ãŒè¶³ã‚Šãªã„å ´åˆã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’ä½¿ç”¨
+        {
+            f->julia_c = (t_complex){.real = -0.7, .imag = 0.27015};
+        }
 	}
 	else
 	{
@@ -87,14 +100,14 @@ void set_fractal_range(t_fractol *f, int set)
 
 /**
  * render:
- * ƒtƒ‰ƒNƒ^ƒ‹‚ğ•`‰æ‚µ‚ÄƒEƒBƒ“ƒhƒE‚É•\¦‚µ‚Ü‚·B
- * @f: ƒtƒ‰ƒNƒ^ƒ‹\‘¢‘ÌB
+ * ï¿½tï¿½ï¿½ï¿½Nï¿½^ï¿½ï¿½ï¿½ï¿½`ï¿½æ‚µï¿½ÄƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½É•\ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+ * @f: ï¿½tï¿½ï¿½ï¿½Nï¿½^ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ÌB
  */
 void render(t_fractol *f)
 {
-	// ƒtƒ‰ƒNƒ^ƒ‹•`‰æ
+	// ï¿½tï¿½ï¿½ï¿½Nï¿½^ï¿½ï¿½ï¿½`ï¿½ï¿½
 	render_fractal(f);
 
-	// ‰æ‘œ‚ğƒEƒBƒ“ƒhƒE‚É•\¦
+	// ï¿½æ‘œï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½É•\ï¿½ï¿½
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
 }

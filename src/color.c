@@ -14,13 +14,13 @@
 
 /**
  * mandelbrot_iterations:
- * ƒsƒNƒZƒ‹‚ªƒ}ƒ“ƒfƒ‹ƒuƒW‡‚É‘®‚·‚é‚©ŒvZ‚µA
- * ”­U‚·‚é‚Ü‚Å‚Ì”½•œ‰ñ”‚ğ•Ô‚µ‚Ü‚·B
+ * ï¿½sï¿½Nï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½}ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½uï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½É‘ï¿½ï¿½ï¿½ï¿½é‚©ï¿½vï¿½Zï¿½ï¿½ï¿½A
+ * ï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½ï¿½Ü‚Å‚Ì”ï¿½ï¿½ï¿½ï¿½ñ”‚ï¿½Ô‚ï¿½ï¿½Ü‚ï¿½ï¿½B
  */
 int mandelbrot_iterations(double cr, double ci, int max_iter)
 {
-    double zr = 0.0; // z‚ÌÀ•”
-    double zi = 0.0; // z‚Ì‹••”
+    double zr = 0.0; // zï¿½Ìï¿½ï¿½ï¿½
+    double zi = 0.0; // zï¿½Ì‹ï¿½ï¿½ï¿½
     int iter = 0;
 
     while (zr * zr + zi * zi <= 4.0 && iter < max_iter)
@@ -35,7 +35,7 @@ int mandelbrot_iterations(double cr, double ci, int max_iter)
 
 /**
  * set_pixel_color:
- * w’è‚³‚ê‚½ƒsƒNƒZƒ‹‚ÉF‚ğİ’è‚µ‚Ü‚·B
+ * ï¿½wï¿½è‚³ï¿½ê‚½ï¿½sï¿½Nï¿½Zï¿½ï¿½ï¿½ÉFï¿½ï¿½İ’è‚µï¿½Ü‚ï¿½ï¿½B
  */
 void set_pixel_color(t_fractol *f, int x, int y, int color)
 {
@@ -43,23 +43,48 @@ void set_pixel_color(t_fractol *f, int x, int y, int color)
         return;
 
     int index = (y * WIDTH + x) * 4;
-    f->buf[index] = color;           // Â
-    f->buf[index + 1] = color >> 8;  // —Î
-    f->buf[index + 2] = color >> 16; // Ô
-    f->buf[index + 3] = color >> 24; // ƒAƒ‹ƒtƒ@
+    f->buf[index] = color;           // ï¿½ï¿½
+    f->buf[index + 1] = color >> 8;  // ï¿½ï¿½
+    f->buf[index + 2] = color >> 16; // ï¿½ï¿½
+    f->buf[index + 3] = color >> 24; // ï¿½Aï¿½ï¿½ï¿½tï¿½@
 }
 
 /**
  * generate_palette:
- * ƒJƒ‰[ƒpƒŒƒbƒg‚ğ¶¬‚µ‚Ü‚·B
+ * é’ â†’ é»„è‰² â†’ ç™½è‰²ã®ã‚°ãƒ©ãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
+ * @palette: ã‚«ãƒ©ãƒ¼ãƒ‘ãƒ¬ãƒƒãƒˆã‚’æ ¼ç´ã™ã‚‹é…åˆ—ã€‚
  */
+#include <math.h> // powé–¢æ•°ã‚’ä½¿ã†
+
+#include <math.h> // powé–¢æ•°ã‚’ä½¿ã†
+
 void generate_palette(int *palette)
 {
     for (int i = 0; i < MAX_ITER; i++)
     {
-        double t = (double)i / MAX_ITER;
-        palette[i] = (int)(9 * (1 - t) * t * t * t * 255) << 16 |        // Ô
-                     (int)(15 * (1 - t) * (1 - t) * t * t * 255) << 8 |  // —Î
-                     (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255); // Â
+        double t = (double)i / (MAX_ITER - 1); // æ­£è¦åŒ– (0.0 ~ 1.0)
+
+        // t ã‚’éç·šå½¢ã«èª¿æ•´ï¼ˆåˆæœŸã®é’ã‚’æ˜ã‚‹ãã™ã‚‹ï¼‰
+        t = pow(t, 0.5); // 0.5: å¹³æ–¹æ ¹ã‚’ä½¿ã£ã¦ t ã‚’å¼·èª¿
+
+        int red, green, blue;
+
+        if (t < 0.4) // é’ â†’ é»„è‰²
+        {
+            red   = (int)(2 * t * 255);             // èµ¤æˆåˆ†: å¾ã€…ã«å¢—åŠ 
+            green = (int)(2 * t * 255);             // ç·‘æˆåˆ†: å¾ã€…ã«å¢—åŠ 
+            blue  = 255 - (int)(2 * t * 255);       // é’æˆåˆ†: å¾ã€…ã«æ¸›å°‘
+        }
+        else // é»„è‰² â†’ èµ¤è‰²
+        {
+            red   = 255;                            // èµ¤æˆåˆ†: æœ€å¤§å€¤
+            green = (int)((1 - (t - 0.5) * 2) * 255); // ç·‘æˆåˆ†: å¾ã€…ã«æ¸›å°‘
+            blue  = 0;                              // é’æˆåˆ†: 0ï¼ˆå®Œå…¨ã«èµ¤æ–¹å‘ï¼‰
+        }
+
+        palette[i] = (red << 16) | (green << 8) | blue; // RGBå€¤ã‚’çµåˆ
     }
 }
+
+
+

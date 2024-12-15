@@ -6,7 +6,7 @@
 /*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:21:10 by pchung            #+#    #+#             */
-/*   Updated: 2024/12/16 00:10:32 by pchung           ###   ########.fr       */
+/*   Updated: 2024/12/16 08:12:47 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,23 @@
 
 int main(int argc, char **argv)
 {
-	t_fractol fractol;
+    t_fractol f;
     int set;
 
-	if (argc < 2)
-		error_msg("No fractal type provided. Use 1 (Mandelbrot) or 2 (Julia).");
+    if (argc < 2)
+        error_msg("No fractal type provided. Use 1 (Mandelbrot) or 2 (Julia).");
 
-	// MLX揄期化
-	fractol.mlx = mlx_init();
-	fractol.win = mlx_new_window(fractol.mlx, WIDTH, HEIGHT, "Fractal Viewer");
-	fractol.img = mlx_new_image(fractol.mlx, WIDTH, HEIGHT);
-	fractol.buf = mlx_get_data_addr(fractol.img, &(int){0}, &(int){0}, &(int){0});
+    set = ft_atoi(argv[1]); 
 
-	// フラクタル種類を昊定
-	set = ft_atoi(argv[1]); // 引摧を攬摧として解釈
-	set_fractal_range(&fractol, set); 
+    if ((set == JULIA && argc != 4 && argc != 2))
+        error_msg("Please enter 2 numbers for Julia set OR nothing for default.");
 
-	// パレット攜擣
-	generate_palette(fractol.palette);
+    init(&f);
+    set_fractal_range(&f, set, argc, argv);
+    load_hooks(&f);
+    generate_palette(f.palette);
+    render(&f);
+    mlx_loop(f.mlx);
 
-	// フラクタルを描画
-	render(&fractol);
-
-	// イベントル拏プ
-	mlx_loop(fractol.mlx);
-	return 0;
+    return 0;
 }
