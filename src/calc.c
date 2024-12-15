@@ -21,20 +21,19 @@
  * 戻り値: zの大きさが2.0を超えるまでの反復回数、
  *         または大きさが2.0を超えない場合はmax_iterations。
  */
-int julia(double z[2], double c[2], int max_iterations)
+int julia(t_complex z, t_complex c, int max_iterations)
 {
     int i = 0;
 
     while (i < max_iterations)
     {
-        double tmp = z[0] * z[0] - z[1] * z[1] + c[0];
+        double tmp = z.real * z.real - z.imag * z.imag + c.real;
+        z.imag = 2.0 * z.real * z.imag + c.imag;
+        z.real = tmp;
 
-        z[1] = 2.0 * z[0] * z[1] + c[1];
-
-        z[0] = tmp;
-
-        if (z[0] * z[0] + z[1] * z[1] >= 4.0)
+        if (z.real * z.real + z.imag * z.imag >= 4.0)
             return i;
+
         i++;
     }
 
@@ -49,18 +48,18 @@ int julia(double z[2], double c[2], int max_iterations)
  * 戻り値: zの大きさが2.0を超えるまでの反復回数、
  *         または大きさが2.0を超えない場合はmax_iterations。
  */
-int mandelbrot(double c[2], int max_iterations)
+int mandelbrot(t_complex c, int max_iterations)
 {
     int i = 0;
-    double z[2] = {0.0, 0.0};
+    t_complex z = {0.0, 0.0}; // zの初期値
 
     while (i < max_iterations)
     {
-        double tmp = z[0] * z[0] - z[1] * z[1] + c[0];
-        z[1] = 2.0 * z[0] * z[1] + c[1];
-        z[0] = tmp;
+        double tmp = z.real * z.real - z.imag * z.imag + c.real;
+        z.imag = 2.0 * z.real * z.imag + c.imag;
+        z.real = tmp;
 
-        if (z[0] * z[0] + z[1] * z[1] >= 4.0)
+        if (z.real * z.real + z.imag * z.imag >= 4.0)
             return i;
 
         i++;
