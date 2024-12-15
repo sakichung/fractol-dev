@@ -36,3 +36,11 @@ t_fractol *select_fractal(int i){
 	};
 	return (&fractol[i]);
 }
+
+void	init(t_fractol *f){
+	f->mix = mlx_init();
+	if(!f->mlx)	error_msg("error connecting");
+	f->win = mlx_new_window(f->mlx,WIDHT,HEIGHT,"Fractol"); //todo:‚±‚±‚Ì–ß‚è’l‚Í‚È‚ÉH
+	if(!f->win) error_msf("error createing window");
+	
+}
