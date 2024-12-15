@@ -6,7 +6,7 @@
 /*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 08:21:10 by pchung            #+#    #+#             */
-/*   Updated: 2024/12/15 23:39:32 by pchung           ###   ########.fr       */
+/*   Updated: 2024/12/16 00:10:32 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int main(int argc, char **argv)
 {
 	t_fractol fractol;
+    int set;
 
 	if (argc < 2)
 		error_msg("No fractal type provided. Use 1 (Mandelbrot) or 2 (Julia).");
@@ -26,8 +27,8 @@ int main(int argc, char **argv)
 	fractol.buf = mlx_get_data_addr(fractol.img, &(int){0}, &(int){0}, &(int){0});
 
 	// フラクタル種類を昊定
-	int set = atoi(argv[1]); // 引摧を攬摧として解釈
-	set_fractal_range(&fractol, set);
+	set = ft_atoi(argv[1]); // 引摧を攬摧として解釈
+	set_fractal_range(&fractol, set); 
 
 	// パレット攜擣
 	generate_palette(fractol.palette);
