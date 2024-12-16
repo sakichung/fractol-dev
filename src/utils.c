@@ -6,7 +6,7 @@
 /*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:55:52 by pchung            #+#    #+#             */
-/*   Updated: 2024/12/16 13:17:51 by pchung           ###   ########.fr       */
+/*   Updated: 2024/12/16 13:51:41 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 int	end_fractol(t_fractol *f)
 {
-	mlx_destroy_image(f->mlx, f->img);
-	mlx_destroy_window(f->mlx, f->win);
+	if (f->mlx == NULL)
+		return (0);
+	if (f->img != NULL)
+		mlx_destroy_image(f->mlx, f->img);
+	if (f->win != NULL)
+		mlx_destroy_window(f->mlx, f->win);
 	mlx_destroy_display(f->mlx);
 	free(f->mlx);
 	return (0);
