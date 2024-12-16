@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 05:33:07 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/25 17:31:06 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:11:16 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:13:53 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	if (dest == NULL && src == NULL)
 		return (NULL);
-	u_dest = (unsigned char *) dest;
-	u_src = (unsigned char *) src;
+	u_dest = (unsigned char *)dest;
+	u_src = (unsigned char *)src;
 	if (dest < src)
 		return (ft_memcpy(dest, src, n));
 	else
@@ -30,7 +30,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (i > 0)
 		{
 			u_dest[i - 1] = u_src[i - 1];
-			i --;
+			i--;
 		}
 		return (dest);
 	}

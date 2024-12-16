@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/06 20:00:37 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/29 16:02:17 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:12:34 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:13:03 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	{
 		if (!is_target(s1[start + total_len - 1], set))
 			break ;
-		total_len --;
+		total_len--;
 	}
 	result = ft_substr(s1, start, total_len);
 	if (result == NULL)
@@ -43,7 +43,7 @@ static unsigned int	start_where(const char *s1, char const *set)
 
 	i = 0;
 	while (is_target(s1[i], set))
-		i ++;
+		i++;
 	return (i);
 }
 
@@ -53,7 +53,7 @@ static int	is_target(char s, char const *set)
 	{
 		if (s == *set)
 			return (1);
-		set ++;
+		set++;
 	}
 	return (0);
 }

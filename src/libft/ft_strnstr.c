@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 07:07:07 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/27 17:42:25 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:12:26 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:13:25 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	little_len = ft_strlen(little);
 	if (little_len == 0)
-		return ((char *) big);
+		return ((char *)big);
 	if (len == 0)
 		return (0);
 	if (len > ft_strlen(big))
@@ -30,14 +30,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (i < len - little_len + 1 && big[i] != '\0')
 	{
 		if (big[i] == little[0] && !ft_strncmp(big + i, little, little_len))
-			return ((char *) big + i);
-		i ++;
+			return ((char *)big + i);
+		i++;
 	}
 	return (NULL);
 }
 
 // #include <stdio.h>
-// #include <string.h> 
+// #include <string.h>
 // int main(void)
 // {
 //     char str[] = "5aac1a4";

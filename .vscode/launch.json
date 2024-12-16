@@ -4,9 +4,9 @@
       "name": "debug",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/a.out_debug",
+      "program": "${workspaceFolder}/fractol_debug",
       "args": [
-        "1"
+        "2", "1", "1"
       ],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

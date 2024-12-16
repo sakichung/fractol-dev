@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 16:01:16 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/30 17:39:24 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:10:21 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:14:11 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*now_pt;
 	t_list	*next_pt;
@@ -44,7 +44,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 // 	return ;
 // }
 
-// int	main(){
+// int	main(void){
 // 	char *test_value1 = ft_strdup("Hello World");
 // 	char *test_value2 = ft_strdup("zzzzzzz");
 // 	t_list	*test1 = ft_lstnew((void *) "abcdefg");

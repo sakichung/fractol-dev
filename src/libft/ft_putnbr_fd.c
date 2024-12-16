@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 09:49:25 by saraki            #+#    #+#             */
-/*   Updated: 2023/08/19 18:42:48 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:11:33 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:15:58 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	dec_to_str(unsigned int n, int fd)
 	ft_putchar_fd(print_char, fd);
 }
 
-// int	main()
+// int	main(void)
 // {
 // 	ft_putnbr_fd(2147483647, STDOUT_FILENO);
 // 	ft_putchar_fd('\n', STDOUT_FILENO);

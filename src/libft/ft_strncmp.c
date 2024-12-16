@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 16:23:33 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/24 09:44:51 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:12:22 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:13:27 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	i = 0;
 	while (i < n && !(s1[i] == '\0' && s2[i] == '\0'))
 	{
-		u_c1 = (unsigned char) s1[i];
-		u_c2 = (unsigned char) s2[i];
+		u_c1 = (unsigned char)s1[i];
+		u_c2 = (unsigned char)s2[i];
 		if (u_c1 != u_c2)
 			return ((int)(u_c1 - u_c2));
-		i ++;
+		i++;
 	}
 	return (0);
 }
 
 // #include <stdio.h>
-// #include <string.h> 
+// #include <string.h>
 // int main(void)
 // {
 // 	printf(
@@ -58,12 +58,12 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 // 		"ture:%d\tmyAns:%d\n",
 // 		strncmp("NULL", NULL, 0),
 // 		ft_strncmp("NULL", NULL, 0)
-// 	);	
+// 	);
 // 	printf(
 // 		"ture:%d\tmyAns:%d\n",
 // 		strncmp(NULL, "NULL", 0),
 // 		ft_strncmp(NULL, "NULL", 0)
-// 	);	
+// 	);
 // 	printf(
 // 		"ture:%d\tmyAns:%d\n",
 // 		strncmp(NULL, NULL, 0),
@@ -78,5 +78,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 // 		strncmp("libft", sample, 6),
 // 		ft_strncmp("libft", sample, 6)
 // 	);
-// 	free(sample);	
+// 	free(sample);
 // }

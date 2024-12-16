@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 13:20:18 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/30 17:47:25 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:10:25 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:14:10 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (del == NULL || lst == NULL)
 		return ;
@@ -33,7 +33,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 // 	return ;
 // }
 // #include "libft.h"
-// int	main(){
+// int	main(void){
 // 	char *test_value = ft_strdup("Hello World");
 // 	t_list	*test3 = ft_lstnew(test_value);
 // 	t_list	*test5 = ft_lstnew(NULL);

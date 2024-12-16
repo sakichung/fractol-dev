@@ -2,7 +2,8 @@
   "files.associations": {
     "fractol.h": "c",
     "keysym.h": "c",
-    "x.h": "c"
+    "x.h": "c",
+    "math.h": "c"
   },
   "42header.email": "pchung@student.42.fr",
   "42header.username": "pchung",

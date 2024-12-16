@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 07:13:48 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/30 17:39:28 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:10:32 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:14:09 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 // 	ft_bzero(content, ft_strlen((char *) content));
 // 	return ;
 // }
-// int	main(){
+// int	main(void){
 // 	char *test_value1 = ft_strdup("abcdefg");
 // 	char *test_value2 = ft_strdup("hijklmn");
 // 	char *test_value3 = ft_strdup("Hello World");

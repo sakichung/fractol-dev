@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 14:56:23 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/27 17:33:57 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:12:12 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:13:30 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ size_t	ft_strlen(const char *s)
 	size_t	len;
 
 	len = 0;
-	while (*s ++)
-		len ++;
+	while (*s++)
+		len++;
 	return (len);
 }
 

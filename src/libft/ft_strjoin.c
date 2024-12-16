@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/06 18:21:09 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/29 16:01:34 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:12:00 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:13:35 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	result = (char *) ft_calloc(sizeof(char), s1_len + s2_len + 1);
+	result = (char *)ft_calloc(sizeof(char), s1_len + s2_len + 1);
 	if (result == NULL)
 		return (NULL);
 	ft_strlcat(result, s1, s1_len + 1);

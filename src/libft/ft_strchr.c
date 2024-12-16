@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 16:36:08 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/27 17:46:54 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:11:47 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:13:40 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ char	*ft_strchr(const char *s, int c)
 	len = ft_strlen(s);
 	while (i <= len)
 	{
-		if ((unsigned char) s[i] == (unsigned char) c)
+		if ((unsigned char)s[i] == (unsigned char)c)
 			return ((char *)(s + i));
-		i ++;
+		i++;
 	}
 	return (NULL);
 }

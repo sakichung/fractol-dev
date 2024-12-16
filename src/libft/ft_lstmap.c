@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 07:31:57 by saraki            #+#    #+#             */
-/*   Updated: 2023/10/30 21:20:34 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:10:43 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:14:05 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int	exit_iter(t_list *new, t_list *initial, void (*del)(void *))
 // 	return ;
 // }
 
-// int	main(){
+// int	main(void){
 // 	char *test_value1 = ft_strdup("abcdefg");
 // 	char *test_value2 = ft_strdup("hijklmn");
 // 	char *test_value3 = ft_strdup("Hello World");

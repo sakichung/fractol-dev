@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vscode <vscode@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 05:13:16 by saraki            #+#    #+#             */
-/*   Updated: 2023/08/23 04:03:07 by vscode           ###   ########.fr       */
+/*   Created: 2024/12/16 13:09:22 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:14:24 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char	*dst;
 
 	i = 0;
-	dst = (unsigned char *) s;
+	dst = (unsigned char *)s;
 	while (i < n)
 	{
 		dst[i] = '\0';
-		i ++;
+		i++;
 	}
 	return ;
 }

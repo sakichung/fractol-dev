@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vscode <vscode@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 16:36:39 by saraki            #+#    #+#             */
-/*   Updated: 2023/08/22 16:04:34 by vscode           ###   ########.fr       */
+/*   Created: 2024/12/16 13:12:31 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:13:23 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ char	*ft_strrchr(const char *s, int c)
 	last_match = NULL;
 	while (i <= len)
 	{
-		if ((unsigned char) s[i] == (unsigned char) c)
+		if ((unsigned char)s[i] == (unsigned char)c)
 			last_match = (char *)(s + i);
-		i ++;
+		i++;
 	}
 	return (last_match);
 }

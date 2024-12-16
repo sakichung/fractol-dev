@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 12:35:36 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/30 17:39:30 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:10:35 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:14:07 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_list	*ft_lstlast(t_list *lst)
 // 	content = NULL;
 // 	return ;
 // }
-// int	main(){
+// int	main(void){
 // 	t_list	*test1 = ft_lstnew((void *) "abcdefg");
 // 	t_list	*test2 = ft_lstnew((void *) "hijklmn");
 // 	t_list	*test3 = ft_lstnew((void *) "opqrst");

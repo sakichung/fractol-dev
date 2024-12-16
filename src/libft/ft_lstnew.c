@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 11:15:45 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/30 17:39:35 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:10:47 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:14:04 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new_list;
 
-	new_list = (t_list *) malloc(sizeof(t_list));
+	new_list = (t_list *)malloc(sizeof(t_list));
 	if (new_list == NULL)
 		return (NULL);
 	new_list->content = content;
@@ -24,7 +24,7 @@ t_list	*ft_lstnew(void *content)
 	return (new_list);
 }
 
-// int	main(){
+// int	main(void){
 // 	t_list	test1 = {(void *) "abcdefg", NULL};
 // 	t_list	*test2 = ft_lstnew((void *) "abcdefg");
 // 	free(test2);

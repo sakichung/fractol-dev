@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 11:33:35 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/30 17:39:15 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:10:17 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:14:12 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		return ;
 	temp_addr = (uintptr_t)(*lst);
 	*lst = new;
-	(**lst).next = (t_list *) temp_addr;
+	(**lst).next = (t_list *)temp_addr;
 }
 
-// int	main(){
+// int	main(void){
 // 	t_list	test1 = {(void *) "abcdefg", NULL};
 // 	t_list	*test2 = ft_lstnew((void *) "hijklmn");
 // 	t_list	*test3 =  NULL;

@@ -1,4 +1,4 @@
-NAME := a.out
+NAME := fractol
 DNAME := $(NAME)_debug
 
 HEADER :=

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saraki <saraki@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: pchung <pchung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 13:29:17 by saraki            #+#    #+#             */
-/*   Updated: 2023/09/25 17:48:52 by saraki           ###   ########.fr       */
+/*   Created: 2024/12/16 13:12:04 by pchung            #+#    #+#             */
+/*   Updated: 2024/12/16 13:13:33 by pchung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	while (i < size - dst_len - 1 && src[i] != '\0')
 	{
 		dst[j] = src[i];
-		i ++;
-		j ++;
+		i++;
+		j++;
 	}
 	dst[j] = '\0';
 	return (dst_len + src_len);
@@ -41,7 +41,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 // strlcat(NULL, src, 0); Pass : return strlen(src)
 // strlcat(NULL, NULL, 0); Err
 // #include <stdio.h>
-// #include <string.h> 
+// #include <string.h>
 // int main(void)
 // {
 // 	size_t	i = 0, j = 0;
@@ -57,7 +57,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 // 	i = strlcat(dest1, ",Alice", 18);
 // 	j = ft_strlcat(dest2, ",Alice", 18);
 // 	printf("%s\t", dest1);
-// 	printf("%s\n", dest2);	
+// 	printf("%s\n", dest2);
 // 	printf("%d\n", (int) j);
 
 // 	i = strlcat(dest1, ",Bobby", 22);
